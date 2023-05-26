@@ -1,0 +1,59 @@
+type AdminChanged @entity(immutable: true) {
+  id: Bytes!
+  previousAdmin: Bytes! 
+  newAdmin: Bytes! 
+}
+
+type BeaconUpgraded @entity(immutable: true) {
+  id: Bytes!
+  beacon: Bytes! 
+}
+
+type FundManagerCreated @entity(immutable: true) {
+  id: Bytes!
+  fundManager: Bytes! 
+  user: Bytes! 
+  label: String! 
+}
+
+type ImplementationUpdated @entity(immutable: true) {
+  id: Bytes!
+  previousImpl: Bytes! 
+  newImpl: Bytes! 
+  typeId: BigInt! 
+}
+
+type Initialized @entity(immutable: true) {
+  id: Bytes!
+  version: Int! 
+}
+
+type OwnershipTransferStarted @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! 
+  newOwner: Bytes! 
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! 
+  newOwner: Bytes! 
+}
+
+type ProtocolLibInfoUpdated @entity(immutable: true) {
+  id: Bytes!
+  typeId: BigInt! 
+  lib: Bytes! 
+}
+
+type SetNewFundManagerImplForProxy @entity(immutable: true) {
+  id: Bytes!
+  proxy: Bytes! 
+  newImpl: Bytes! 
+  typeId: BigInt! 
+}
+
+type Upgraded @entity(immutable: true) {
+  id: Bytes!
+  implementation: Bytes! 
+}
