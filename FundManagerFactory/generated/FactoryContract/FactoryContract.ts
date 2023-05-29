@@ -76,6 +76,64 @@ export class FundManagerCreated__Params {
   }
 }
 
+export class Owner extends ethereum.Event {
+  get params(): Owner__Params {
+    return new Owner__Params(this);
+  }
+}
+
+export class Owner__Params {
+  _event: Owner;
+
+  constructor(event: Owner) {
+    this._event = event;
+  }
+
+  get name(): Bytes {
+    return this._event.parameters[0].value.toBytes();
+  }
+
+  get fundsOwned(): Bytes {
+    return this._event.parameters[1].value.toBytes();
+  }
+}
+
+export class Transaction extends ethereum.Event {
+  get params(): Transaction__Params {
+    return new Transaction__Params(this);
+  }
+}
+
+export class Transaction__Params {
+  _event: Transaction;
+
+  constructor(event: Transaction) {
+    this._event = event;
+  }
+
+  get transactionReciept(): Bytes {
+    return this._event.parameters[0].value.toBytes();
+  }
+}
+
+export class TransactionReciept extends ethereum.Event {
+  get params(): TransactionReciept__Params {
+    return new TransactionReciept__Params(this);
+  }
+}
+
+export class TransactionReciept__Params {
+  _event: TransactionReciept;
+
+  constructor(event: TransactionReciept) {
+    this._event = event;
+  }
+
+  get transaction(): Bytes {
+    return this._event.parameters[0].value.toBytes();
+  }
+}
+
 export class ImplementationUpdated extends ethereum.Event {
   get params(): ImplementationUpdated__Params {
     return new ImplementationUpdated__Params(this);
