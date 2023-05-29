@@ -57,3 +57,77 @@ type Upgraded @entity(immutable: true) {
   id: Bytes!
   implementation: Bytes! 
 }
+
+type Owner @entity(immutable : true){
+  id:Bytes!
+  name: String!
+  fundsOwned: String!
+}
+
+type Transaction @entity(immutable: true) {
+  id: Bytes!
+  transactionReceipt: Bytes!
+}
+
+type TransactionReceipt @entity(immutable: true) {
+  id: Bytes!
+  transaction: Bytes!
+}
+
+type CodeUpdated @entity(immutable: true) {
+  id: Bytes!
+  uuid: Bytes! 
+  codeAddress: Bytes! 
+}
+
+type FundsAdded @entity(immutable: true) {
+  id: Bytes!
+  _user: Bytes! 
+  _investmentAmount: BigInt! 
+  _sharesReceived: BigInt! 
+}
+
+type LiquidityAdded @entity(immutable: true) {
+  id: Bytes!
+  user: Bytes! 
+  externalPosition: Bytes! 
+  nftId: BigInt! 
+  liquidityAdded: BigInt! 
+}
+
+type LiquidityWithdrawn @entity(immutable: true) {
+  id: Bytes!
+  user: Bytes! 
+  externalPosition: Bytes! 
+  nftId: BigInt! 
+  liquidityWithdrawn: BigInt! 
+}
+
+type RoleAdminChanged @entity(immutable: true) {
+  id: Bytes!
+  role: Bytes! 
+  previousAdminRole: Bytes! 
+  newAdminRole: Bytes! 
+}
+
+type RoleGranted @entity(immutable: true) {
+  id: Bytes!
+  role: Bytes! 
+  account: Bytes! 
+  sender: Bytes! 
+}
+
+type RoleRevoked @entity(immutable: true) {
+  id: Bytes!
+  role: Bytes! 
+  account: Bytes! 
+  sender: Bytes! 
+}
+
+type VaultCreated @entity(immutable: true) {
+  id: Bytes!
+  _user: Bytes! 
+  _fundOwner: Bytes! 
+  _comptrollerProxy: Bytes! 
+  _vaultProxy: Bytes! 
+}

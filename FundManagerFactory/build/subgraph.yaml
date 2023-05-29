@@ -26,7 +26,7 @@ dataSources:
         - Upgraded
       abis:
         - name: FactoryContract
-          file: FactoryContract\abis\FactoryContract.json
+          file: FactoryContract/abis/FactoryContract.json
       eventHandlers:
         - event: AdminChanged(address,address)
           handler: handleAdminChanged
@@ -48,4 +48,47 @@ dataSources:
           handler: handleSetNewFundManagerImplForProxy
         - event: Upgraded(indexed address)
           handler: handleUpgraded
-      file: FactoryContract\FactoryContract.wasm
+      file: FactoryContract/FactoryContract.wasm
+templates:
+  - kind: ethereum
+    name: ChildContract
+    network: mainnet
+    source:
+      abi: ChildContract
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - CodeUpdated
+        - FundsAdded
+        - Initialized
+        - LiquidityAdded
+        - LiquidityWithdrawn
+        - RoleAdminChanged
+        - RoleGranted
+        - RoleRevoked
+        - VaultCreated
+      abis:
+        - name: ChildContract
+          file: ChildContract/abis/ChildContract.json
+      eventHandlers:
+        - event: CodeUpdated(bytes32,address)
+          handler: handleCodeUpdated
+        - event: FundsAdded(address,uint256,uint256)
+          handler: handleFundsAdded
+        - event: Initialized(uint8)
+          handler: handleInitialized
+        - event: LiquidityAdded(address,address,uint256,uint128)
+          handler: handleLiquidityAdded
+        - event: LiquidityWithdrawn(address,address,uint256,uint128)
+          handler: handleLiquidityWithdrawn
+        - event: RoleAdminChanged(indexed bytes32,indexed bytes32,indexed bytes32)
+          handler: handleRoleAdminChanged
+        - event: RoleGranted(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleGranted
+        - event: RoleRevoked(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleRevoked
+        - event: VaultCreated(address,address,address,address)
+          handler: handleVaultCreated
+      file: FactoryContract/FactoryContract.wasm
