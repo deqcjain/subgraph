@@ -1,8 +1,0 @@
-{
-    "mainnet": {
-        "ChildContract": {
-            "address": "0x789D023BC9D852ae7d5022D00A167F16CDD59ccc",
-            "startBlock": 0
-        }
-    }
-}
